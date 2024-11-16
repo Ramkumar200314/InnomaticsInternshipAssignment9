@@ -16,5 +16,9 @@
   "engines": {
     "node": "16.x"
   }
+  "dependencies": {
+  "express": "^4.21.1",
+  "mongoose": "^7.0.0"  // This should be included
+}
 }
 
