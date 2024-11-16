@@ -1,13 +1,16 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;  // Use environment port if available
 
 // Import routes
 const todoRoutes = require('./routes/todos');
 
-// MongoDB connection string (use your Atlas or local MongoDB URI)
-const dbURI = 'mongodb+srv://ramkumar20034:gykE0RU4hGEU4mOo@cluster0.tqk6n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+// MongoDB connection string (from .env file)
+const dbURI = process.env.MONGO_URI;
 
 // Connect to MongoDB
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
